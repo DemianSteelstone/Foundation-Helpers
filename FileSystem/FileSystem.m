@@ -13,6 +13,11 @@
 #include <sys/xattr.h>
 
 @implementation FileSystem
+{
+    NSString *_documentsFolder;
+    NSString *_libraryFolder;
+    NSString *_cachesFolder;
+}
 
 + (FileSystem *)sharedFileSystem
 {
@@ -24,15 +29,18 @@
     return shared;
 }
 
+-(NSString*)systemFolderOfType:(NSSearchPathDirectory)type
+{
+    NSArray *searchPaths =
+    NSSearchPathForDirectoriesInDomains
+    (type, NSUserDomainMask, YES);
+    return searchPaths[0];
+}
+
 -(NSString*)documentsFolder
 {
     if (!_documentsFolder)
-    {
-        NSArray *searchPaths = 
-        NSSearchPathForDirectoriesInDomains 
-        (NSDocumentDirectory, NSUserDomainMask, YES); 
-        _documentsFolder = [searchPaths objectAtIndex: 0];
-    }
+        _documentsFolder = [self systemFolderOfType:NSDocumentDirectory];
     
     return _documentsFolder;
 }
@@ -40,12 +48,7 @@
 -(NSString*)libraryFolder
 {
     if (!_libraryFolder)
-    {
-        NSArray *searchPaths = 
-        NSSearchPathForDirectoriesInDomains 
-        (NSLibraryDirectory, NSUserDomainMask, YES); 
-        _libraryFolder = [searchPaths objectAtIndex: 0];
-    }
+        _libraryFolder = [self systemFolderOfType:NSLibraryDirectory];
     
     return _libraryFolder;
 }
@@ -53,12 +56,7 @@
 -(NSString*)cachesFolder
 {
     if (!_cachesFolder)
-    {
-        NSArray *searchPaths = 
-        NSSearchPathForDirectoriesInDomains 
-        (NSCachesDirectory, NSUserDomainMask, YES); 
-        _cachesFolder = [searchPaths objectAtIndex: 0];
-    }
+        _cachesFolder = [self systemFolderOfType:NSCachesDirectory];
     
     return _cachesFolder;
 }

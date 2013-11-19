@@ -9,11 +9,7 @@
 #import <Foundation/Foundation.h>
 
 
-@interface FileSystem : NSObject {
-    NSString *_documentsFolder;
-    NSString *_libraryFolder;
-    NSString *_cachesFolder;
-}
+@interface FileSystem : NSObject 
 
 +(FileSystem*)sharedFileSystem;
 
