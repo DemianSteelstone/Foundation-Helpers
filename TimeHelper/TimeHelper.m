@@ -42,4 +42,16 @@
     return [NSString stringWithFormat:@"%.02d:%.02d",time.h,time.m];
 }
 
+-(NSString*)convertToString_HH_MM_SS
+{
+    THTimeStruct time = [self getTimeStruc];
+    
+    if (time.h > 0)
+        return [NSString stringWithFormat:@"%.02d:%.02d:%.02d",time.h,time.m,time.s];
+    return [NSString stringWithFormat:@"%.02d:%.02d",time.m,time.s];
+}
+
+
+
+
 @end

@@ -21,5 +21,6 @@ typedef struct sTHTimeStruct THTimeStruct;
 
 -(THTimeStruct)getTimeStruc;
 -(NSString*)convertToString_HHmm;
+-(NSString*)convertToString_HH_MM_SS;
 
 @end
