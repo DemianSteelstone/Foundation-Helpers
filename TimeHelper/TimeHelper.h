@@ -17,7 +17,7 @@ typedef struct sTHTimeStruct THTimeStruct;
 
 @interface TimeHelper : NSObject
 
--(id)initWithSeconds:(int)seconds;
+-(id)initWithSeconds:(NSUInteger)seconds;
 
 -(THTimeStruct)getTimeStruc;
 -(NSString*)convertToString_HHmm;

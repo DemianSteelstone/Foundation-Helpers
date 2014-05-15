@@ -10,10 +10,10 @@
 
 @implementation TimeHelper
 {
-    int _seconds;
+    NSUInteger _seconds;
 }
 
--(id)initWithSeconds:(int)seconds
+-(id)initWithSeconds:(NSUInteger)seconds
 {
     if (self = [super init])
     {
