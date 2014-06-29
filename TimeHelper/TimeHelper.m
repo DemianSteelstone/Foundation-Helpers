@@ -27,8 +27,8 @@
     THTimeStruct time;
     time.h = _seconds / (60*60);
     
-    int hh = time.h * 60 *60;
-    int fullMinutes = _seconds - hh;
+    NSInteger hh = time.h * 60 *60;
+    NSInteger fullMinutes = _seconds - hh;
     time.m = fullMinutes / 60;
     time.s = fullMinutes % 60;
     
@@ -39,7 +39,7 @@
 {
     THTimeStruct time = [self getTimeStruc];
     
-    return [NSString stringWithFormat:@"%.02d:%.02d",time.h,time.m];
+    return [NSString stringWithFormat:@"%.2ld:%.2ld",(long)time.h,(long)time.m];
 }
 
 -(NSString*)convertToString_HH_MM_SS
@@ -47,8 +47,8 @@
     THTimeStruct time = [self getTimeStruc];
     
     if (time.h > 0)
-        return [NSString stringWithFormat:@"%.02d:%.02d:%.02d",time.h,time.m,time.s];
-    return [NSString stringWithFormat:@"%.02d:%.02d",time.m,time.s];
+        return [NSString stringWithFormat:@"%.2ld:%.2ld:%.2ld",(long)time.h,(long)time.m,(long)time.s];
+    return [NSString stringWithFormat:@"%.2ld:%.2ld",(long)time.m,(long)time.s];
 }
 
 

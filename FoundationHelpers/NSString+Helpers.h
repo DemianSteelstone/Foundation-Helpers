@@ -10,6 +10,6 @@
 
 @interface NSString (Helpers)
 
-+(NSString*)randomString:(int)length;
++(NSString*)randomString:(NSInteger)length;
 
 @end

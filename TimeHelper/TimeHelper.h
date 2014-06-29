@@ -10,7 +10,7 @@
 
 struct sTHTimeStruct
 {
-    int h,m,s;
+    NSInteger h,m,s;
 };
 
 typedef struct sTHTimeStruct THTimeStruct;
