@@ -13,7 +13,7 @@
 -(NSDateComponents*)getComponents:(NSUInteger)mask
 {
     NSCalendar *gregorian = [[NSCalendar alloc]
-                             initWithCalendarIdentifier:NSGregorianCalendar];
+                             initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
     
     return [gregorian components:mask fromDate:self];
 }
@@ -25,7 +25,7 @@
     NSDateComponents *hourComponent = [[NSDateComponents alloc] init];
     [hourComponent setHour:hours];
     
-    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
     
     return [calendar dateByAddingComponents:hourComponent toDate:date options:0];
 }
