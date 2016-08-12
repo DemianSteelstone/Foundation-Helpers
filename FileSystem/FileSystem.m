@@ -8,6 +8,7 @@
 
 #import "FileSystem.h"
 
+@import Darwin.C.time;
 #include <sys/types.h>
 #include <sys/sysctl.h>
 #include <sys/xattr.h>
